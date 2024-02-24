@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json())
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-const {userRoutes,productRoutes} = require('./routes/index')
+const {userRoutes,productRoutes,userProfileRoutes} = require('./routes/index')
 const {connection} = require('./confige/confige')
 const authenticate = require("./middleware/authenticate")
 const swaggerJsdoc = require('swagger-jsdoc');
@@ -19,6 +19,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/', userRoutes);
 app.use(authenticate)
 app.use('/product', productRoutes);
+app.use('/',userProfileRoutes)
 
 app.get('/',(req,res)=>{
 res.status(200).json("Welcome on E-Commerce App")

@@ -1,6 +1,12 @@
-const { userRoutes } = require('./userRoutes')
+const { userRoutes } = require("./userRoutes");
+const { productRoutes } = require("./productRoutes");
+const { userProfileRoutes } = require("./userProfileRoutes");
 
-const { productRoutes } = require('./productRoutes');
+module.exports = {
+  userRoutes,
+  productRoutes,
+  userProfileRoutes,
+};
 
 /**
  * @swagger
@@ -8,7 +14,6 @@ const { productRoutes } = require('./productRoutes');
  *   name: Authentication
  *   description: API endpoints for user authentication
  */
-
 
 /**
  * @swagger
@@ -129,7 +134,7 @@ const { productRoutes } = require('./productRoutes');
  *                 message:
  *                   type: string
  *                 user:
- *                 
+ *
  *                 token:
  *                   type: string
  *                 refreshToken:
@@ -330,8 +335,3 @@ const { productRoutes } = require('./productRoutes');
  *       500:
  *         description: Internal Server Error
  */
-
-module.exports = {
-    userRoutes,
-    productRoutes
-}
